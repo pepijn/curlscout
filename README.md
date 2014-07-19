@@ -39,6 +39,8 @@ The configuration file can both be piped (2) and loaded by `curl` (1).
 
 2: `cat curlscoutrc_example | curlscout`
 
+The process exits with `0` if the configuration expectations match with the responses. Exit `1` if there is a mismatch.
+
 ### Configuration
 
 The configuration file is separated by groups. Groups are logged, so they are useful for uptime reports. A group has one or more lines beneath. These lines declare the expected HTTP response. The following three columns are used:
