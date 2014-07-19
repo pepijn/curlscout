@@ -121,7 +121,7 @@ Take a look at your Heroku logs: `heroku logs --tail`
 
 ### NodePing
 
-I recommmend NodePing for monitoring, because they send unlimited alerts via SMS/text. Pingdom and others can be used as well. Just make sure you are alerted when the response code is not `200`.
+I recommmend NodePing for monitoring, because they send unlimited alerts via SMS/text. Pingdom and others can be used as well. Just make sure you are alerted when the response code is not `200`, and you have set up your `Access-Key` as request header.
 
 ![NodePing configuration](https://curlscout.s3-eu-west-1.amazonaws.com/nodeping.png)
 
