@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+GROUP=$1
+EXP_HTTP_CODE=$2
+HOST=$3
+EXP_REDIRECT=$4
+
+set -u
+
+curl $HOST --head -sw "%{http_code} %{time_total} $GROUP %{url_effective} %{redirect_url}\n" -o /dev/null | \
+  while read response; do
+    echo $response
+
+    code=$(echo $response | awk '{print $1}')
+    redirect=$(echo $response | awk '{print $5}')
+
+    if [ $code != $EXP_HTTP_CODE ] || [ "$redirect" != "$EXP_REDIRECT" ]; then
+      echo "Failed: $HOST Expected: $EXP_HTTP_CODE $EXP_REDIRECT" >&2
+      exit 1
+    fi
+  done

@@ -1,0 +1,27 @@
+#!/bin/bash
+set -eu
+
+FAILURE=0
+
+if [ -z $@ ]; then
+  while read line; do
+    if [ $(echo $line | awk '{print NF}') -le 1 ]; then
+      group=$line
+    else
+      set -e
+        curlscout_hosts $group $line &
+      set +e
+      PIDS+="$! "
+    fi
+  done
+
+  for pid in $PIDS; do
+    wait $pid
+
+    if [ $? != 0 ]; then FAILURE=1; fi
+  done
+
+  exit $FAILURE
+else
+  curl -s $@ | curlscout
+fi

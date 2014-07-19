@@ -1,0 +1,29 @@
+{
+  "name": "curlscout",
+  "version": "0.9.0",
+  "description": "Easily configurable and extendable monitoring",
+  "author": "Pepijn Looije <pepijn@looije.me>",
+  "repository": "pepijn/curlscout",
+  "license": "MIT",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "curlscout": "./bin/curlscout",
+    "curlscout_hosts": "./bin/curlscout_hosts"
+  },
+  "keywords": [
+    "http",
+    "monitor",
+    "server",
+    "curl",
+    "scout",
+    "response",
+    "time",
+    "uptime"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
