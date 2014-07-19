@@ -11,6 +11,7 @@ That afternoon, `curlscout` was born. In cooperation with her family of pre-exis
 * Quick setup and free hosting in region of your choice via Heroku
 * International SMS/text alerts via NodePing
 * Reponse time logging to AWS S3 for analysis via Loggly
+* Less time spent checking all of your websites :-)
 
 ## Dependencies
 
@@ -18,7 +19,7 @@ Required:
 * `curl`: http://curl.haxx.se/
 
 Optional:
-* `node.js`: http://nodejs.org/
+* node.js: http://nodejs.org/
 * Heroku: https://heroku.com
 * Loggly: https://www.loggly.com/
 * NodePing: https://nodeping.com/
@@ -38,9 +39,31 @@ The configuration file can both be piped (2) and loaded by `curl` (1).
 
 2: `cat curlscoutrc_example | curlscout`
 
-## Integration
+### Configuration
 
-Recommended usage is running `curlscout` on **Heroku** with invocation/alerts via **NodePing**, and log persistence through the **Loggly** addon. Step-by-step:
+The configuration file is separated by groups. Groups are logged, so they are useful for uptime reports. A group has one or more lines beneath. These lines declare the expected HTTP response. The following three columns are used:
+
+1. Expected HTTP response code
+2. Host (parsed by curl, so stuff like HTTP auth and lists (`http{s,}`, `{www.,}example.org`) is possible too)
+3. Optional: expected HTTP Location header for 30[12] redirects
+
+Example:
+
+```
+github
+301 github.com             https://github.com/
+301 www.github.com         https://www.github.com/
+301 https://www.github.com https://github.com/
+200 https://github.com
+
+reddit
+302 reddit.com http://www.reddit.com/
+200 www.reddit.com
+```
+
+## Integration example
+
+Recommended usage is running `curlscout` on **Heroku** with invocation/alerts via **NodePing**, and log persistence through the **Loggly** addon. All steps are optional. Hosting (app and/or configuration file) on your own server is possible too. Step-by-step:
 
 ### Heroku
 
@@ -103,7 +126,7 @@ When the addon is added, go to your Heroku app dashboard. Click the Loggly Mole 
 
 ### Extras
 
-The New Relic addon gives a nice overview of your total response times.
+The New Relic addon gives a nice overview of your total response time.
 
 ## References
 
