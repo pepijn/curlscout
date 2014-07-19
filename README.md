@@ -110,6 +110,10 @@ heroku config:add IP_WHITELIST=127.0.0.1
 
 And go! `curl -H "access-key: j8ZHXtCHjJBjN9HvqoXv" curlscout-example.herokuapp.com`
 
+Take a look at your Heroku logs: `heroku logs --tail`
+
+![Heroku Logs](https://curlscout.s3-eu-west-1.amazonaws.com/heroku_logs.png)
+
 ### NodePing
 
 I recommmend NodePing for monitoring, because they send unlimited alerts via SMS/text. Pingdom and others can be used as well. Just make sure you are alerted when the response code is not `200`.
