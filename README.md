@@ -10,7 +10,7 @@ That afternoon, `curlscout` was born. In cooperation with her family of pre-exis
 * Easy configuration syntax for all kinds of redirects: `http{s,}`, `{www.,}example.{com,org,net}` etc.
 * Quick setup and free hosting in region of your choice via Heroku
 * International SMS/text alerts via NodePing
-* Reponse time logging to AWS S3 for analysis via Loggly
+* Logging to AWS S3 for response-time analysis of all your websites via Loggly
 * Less time spent checking all of your websites :-)
 
 ## Dependencies
