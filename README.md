@@ -3,7 +3,7 @@ Curlscout
 
 ![NodePing configuration](https://curlscout.s3-eu-west-1.amazonaws.com/curlscout.png)
 
-A long time customer called me: "Why is my website redirecting to not-the-clients-website.com?" Oops, a low-traffic website  became the casualty of an (incorrectly) updated nginx configuration. Two days ago.
+A long time customer called me: "Why is my website redirecting to not-the-clients-website.com?" Oops, a low-traffic website  became the casualty of an (incorrectly) updated nginx configuration. Two days before.
 
 That afternoon, `curlscout` was born. In cooperation with her family of pre-existing tools, she is able to offer you:
 
