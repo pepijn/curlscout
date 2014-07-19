@@ -31,15 +31,15 @@ The configuration file can both be piped (2) and loaded by `curl` (1).
 
 ## Integration
 
+### Heroku
+
 Recommended usage is running `curlscout` on **Heroku**, in combination with the **Loggly** addon. Step-by-step:
 
 Create and cd into directory for project: `mkdir curlscout-example && cd curlscout-example`
 
-Create Heroku app: `heroku create curlscout-example`
-
 Create the following files:
 
-```json
+```javascript
 // package.json
 
 {
@@ -54,16 +54,32 @@ Create the following files:
 
 "use strict"
 
-require('newrelic')
-
 var curlscout_server = require('curlscout')
 
-curlscout_server.ip_whitelist = process.env.ip_whitelist.split(',')
-curlscout_server.access_key   = process.env.access_key
-curlscout_server.config_url   = process.env.config_url
+curlscout_server.ip_whitelist = process.env.IP_WHITELIST.split(',')
+curlscout_server.access_key   = process.env.ACCESS_KEY
+curlscout_server.config_url   = process.env.CONFIG_URL
 
-curlscout_server.listen(process.env.port)
+curlscout_server.listen(process.env.PORT)
 ```
+
+Create first Git commit: `git init && git add . && git commit -am "Initial commit"`
+
+Create Heroku app: `heroku create curlscout-example`
+
+Push to Heroku: `git push heroku master`
+
+Add Heroku configs:
+```
+heroku config:add CONFIG_URL=http://curlscout.s3-eu-west-1.amazonaws.com/curlscoutrc_example 
+heroku config:add ACCESS_KEY=j8ZHXtCHjJBjN9HvqoXv 
+heroku config:add IP_WHITELIST=127.0.0.1
+```
+
+And go! `curl -H "access-key: j8ZHXtCHjJBjN9HvqoXv" curlscout-example.herokuapp.com`
+
+### NodePing
+
 
 * https://github.com/pepijn/curlscout
 * https://www.npmjs.org/package/curlscout
