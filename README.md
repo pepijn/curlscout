@@ -1,11 +1,13 @@
 Curlscout
 =========
 
+![NodePing configuration](https://curlscout.s3-eu-west-1.amazonaws.com/curlscout.png)
+
 A long time customer called me: "Why is my website redirecting to not-the-clients-website.com?" Oops, a low-traffic website  became the casualty of an (incorrectly) updated nginx configuration. Two days ago.
 
 That afternoon, `curlscout` was born. In cooperation with her family of pre-existing tools, she is able to offer you:
 
-* Easy configuration syntax for all kinds of redirects: http{s,}, {www.,}example.{com,org,net} etc.
+* Easy configuration syntax for all kinds of redirects: `http{s,}`, `{www.,}example.{com,org,net}` etc.
 * Quick setup and free hosting in region of your choice via Heroku
 * International SMS/text alerts via NodePing
 * Reponse time logging to AWS S3 for analysis via Loggly
