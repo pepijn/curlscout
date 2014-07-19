@@ -3,7 +3,14 @@ Curlscout
 
 A long time customer called me: "Why is my website redirecting to not-the-clients-website.com?" Oops, a low-traffic website  became the casualty of an (incorrectly) updated nginx configuration. Two days ago.
 
-That afternoon, `curlscout` was born. A small and therefore excellent family member in a world of wonderful tools:
+That afternoon, `curlscout` was born. In cooperation with her family of pre-existing tools, she is able to offer you:
+
+* Easy configuration syntax for all kinds of redirects: http{s,}, {www.,}example.{com,org,net} etc.
+* Quick setup and free hosting in region of your choice via Heroku
+* International SMS/text alerts via NodePing
+* Reponse time logging to AWS S3 for analysis via Loggly
+
+## Dependencies
 
 Required:
 * `curl`: http://curl.haxx.se/
@@ -31,9 +38,9 @@ The configuration file can both be piped (2) and loaded by `curl` (1).
 
 ## Integration
 
-### Heroku
+Recommended usage is running `curlscout` on **Heroku** with invocation/alerts via **NodePing**, and log persistence through the **Loggly** addon. Step-by-step:
 
-Recommended usage is running `curlscout` on **Heroku**, in combination with the **Loggly** addon. Step-by-step:
+### Heroku
 
 Create and cd into directory for project: `mkdir curlscout-example && cd curlscout-example`
 
@@ -80,6 +87,13 @@ And go! `curl -H "access-key: j8ZHXtCHjJBjN9HvqoXv" curlscout-example.herokuapp.
 
 ### NodePing
 
+I recommmend NodePing for monitoring, because they send unlimited alerts via SMS/text. Pingdom and others can be used as well. Just make sure you are alerted when the response code is not `200`.
+
+![NodePing configuration](https://curlscout.s3-eu-west-1.amazonaws.com/nodeping.png)
+
+### Loggly
+
+Add Loggly to Heroku: `heroku addons:add loggly`
 
 * https://github.com/pepijn/curlscout
 * https://www.npmjs.org/package/curlscout
