@@ -23,11 +23,13 @@ var server = http.createServer(function(req, res) {
     util.puts(data.trim())
     output += data
   })
+
   ps.stderr.on('data', function(data) {
     var data = data.toString()
-    util.error(data.toString().trim())
+    util.error(data.trim())
     output += data
   })
+
   ps.on('exit', function(code) {
     if (code > 0) res.statusCode = 500
     res.write(output)
