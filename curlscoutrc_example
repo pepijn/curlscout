@@ -1,0 +1,13 @@
+github
+301 github.com             https://github.com/
+301 www.github.com         https://www.github.com/
+301 https://www.github.com https://github.com/
+200 https://github.com
+
+reddit
+302 reddit.com http://www.reddit.com/
+200 www.reddit.com
+
+hackernews
+301 news.ycombinator.com https://news.ycombinator.com/
+200 https://news.ycombinator.com
