@@ -51,7 +51,7 @@ Create the following files:
 
 {
   "dependencies": {
-    "curlscout": ">= 0.9.0"
+    "curlscout": ">= 0.9.1"
   }
 }
 ```
@@ -94,6 +94,16 @@ I recommmend NodePing for monitoring, because they send unlimited alerts via SMS
 ### Loggly
 
 Add Loggly to Heroku: `heroku addons:add loggly`
+
+When the addon is added, go to your Heroku app dashboard. Click the Loggly Mole and setup archiving to your S3 bucket.
+
+![Loggly configuration](https://curlscout.s3-eu-west-1.amazonaws.com/loggly.png)
+
+### Extras
+
+The New Relic addon gives a nice overview of your total response times.
+
+## References
 
 * https://github.com/pepijn/curlscout
 * https://www.npmjs.org/package/curlscout
