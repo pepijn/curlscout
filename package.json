@@ -1,6 +1,6 @@
 {
   "name": "curlscout",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Easily configurable and extendable monitoring",
   "author": "Pepijn Looije <pepijn@looije.me>",
   "repository": "pepijn/curlscout",
