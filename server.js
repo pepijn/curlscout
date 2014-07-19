@@ -8,9 +8,9 @@ var server = http.createServer(function(req, res) {
   var ip_list  = this.ip_whitelist,
       remoteip = req.headers['x-forwarded-for'] || req.connection.remoteAddress,
       ip_whitelisted  = ip_list.indexOf(remoteip) >= 0,
-      api_key_correct = req.headers['api-key'] == this.access_key
+      access_key_correct = req.headers['access-key'] == this.access_key
 
-  if (!api_key_correct && !ip_whitelisted) {
+  if (!access_key_correct && !ip_whitelisted) {
     res.statusCode = 403
     return res.end()
   }
