@@ -45,7 +45,7 @@ The configuration file is separated by groups. Groups are logged, so they are us
 
 1. Expected HTTP response code
 2. Host (parsed by curl, so stuff like HTTP auth and lists (`http{s,}`, `{www.,}example.org`) is possible too)
-3. Optional: expected HTTP Location header for 30[12] redirects
+3. Optional: expected HTTP Location header for `30[12]` redirects
 
 Example:
 
